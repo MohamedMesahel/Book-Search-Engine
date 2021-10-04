@@ -11,7 +11,7 @@ const AppNavbar = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
+    <header>
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
@@ -25,12 +25,12 @@ const AppNavbar = () => {
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
-                <>
+                <div>
                   <Nav.Link as={Link} to='/saved'>
                     See Your Books
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-                </>
+                </div>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
@@ -70,7 +70,7 @@ const AppNavbar = () => {
           </Modal.Body>
         </Tab.Container>
       </Modal>
-    </>
+    </header>
   );
 };
 
