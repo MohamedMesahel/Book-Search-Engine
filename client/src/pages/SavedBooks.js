@@ -38,7 +38,7 @@ const SavedBooks = () => {
 
 
   return (
-    <>
+    <div>
       <Jumbotron fluid className='text-light bg-dark'>
         <Container>
           <h1>Viewing saved books!</h1>
@@ -70,7 +70,7 @@ const SavedBooks = () => {
           }
         </CardColumns>
       </Container>
-    </>
+    </div>
   );
 };
 

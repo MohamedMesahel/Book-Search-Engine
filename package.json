@@ -15,10 +15,18 @@
   "author": "MZ",
   "license": "ISC",
   "devDependencies": {
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "axios": "^0.22.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^5.1.2",
+    "dotenv": "^10.0.0",
     "graphql": "^15.6.1",
-    "nodemon": "^2.0.13"
+    "i": "^0.3.7",
+    "nodemon": "^2.0.13",
+    "npm": "^7.24.2"
   }
 }
