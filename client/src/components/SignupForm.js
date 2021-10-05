@@ -1,5 +1,5 @@
 // TODO: Test the app response if not check activity 26, day 3, pages, signup 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 
