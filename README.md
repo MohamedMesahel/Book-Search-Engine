@@ -2,7 +2,7 @@
 An application that search for new books to read, save and to keep a list of books to purchase.
 
 ## About
-Fully functioning Google Books API search engine built with a RESTful API, and refactor it to be a GraphQL API built with Apollo Server. The app was built using the MERN stack with a React front end, MongoDB database, and Node.js/Express.js server and API.
+Fully functioning Google Books API search engine built with GraphQL API and Apollo Server. The app was built using the MERN stack with a React front end, MongoDB database, and Node.js/Express.js server.
 
 ## Table of Contents
 * [Installation](#installation)

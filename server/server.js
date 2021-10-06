@@ -26,7 +26,9 @@ if (process.env.NODE_ENV === 'production') {
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
-
+// TODO: Make sure to connect MongoDB to Heroku instead
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bookDB",
+//   { useNewUrlParser: true, useFindAndModify: false, useUnifiedTopology: true, useCreateIndex: true });
 db.once('open', () => {
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
@@ -34,3 +36,4 @@ db.once('open', () => {
   });
 });
 
+//Root:Zizo1234@cluster0.tjgsv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
