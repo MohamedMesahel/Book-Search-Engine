@@ -49,13 +49,14 @@ const resolvers = {
       return { token, user };
     },
     // Set up mutation user can save books
-    saveBook: async (parent, args, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $push: { savedBooks: args } },
+    saveBook: async (parent, { input }, { user }) => {
+      if (user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: user._id },
+          { $addToSet: { saveBook: input } },
           { new: true, runValidators: true }
         );
+
         return updatedUser;
       }
       throw new AuthenticationError("Couldn't save book!");
