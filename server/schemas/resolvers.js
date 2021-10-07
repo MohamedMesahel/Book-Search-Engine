@@ -49,19 +49,17 @@ const resolvers = {
       return { token, user };
     },
     // Set up mutation user can save books
-    saveBook: async (parent, { input }, { user }) => {
-      if (user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: user._id },
-          { $addToSet: { saveBook: input } },
+    saveBook: async (parent, { input }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { savedBooks: input } },
           { new: true, runValidators: true }
         );
-
         return updatedUser;
       }
-      throw new AuthenticationError("Couldn't save book!");
+      throw new AuthenticationError("You need to be logged in!");
     },
-    // Set up mutation so a logged in user can only remove their books and no one else's
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
