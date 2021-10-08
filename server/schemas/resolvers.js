@@ -6,14 +6,19 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     // Define a resolver to retrieve individual users
+    users: async () => {
+      return User.find();
+    },
+
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
+    },
     me: async (parent, args, context) => {
+      
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
-
-        return userData;
+        return User.findOne({ _id: context.user._id });
       }
-
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError('You need to be logged in!');
     },
 
   },
@@ -49,18 +54,18 @@ const resolvers = {
       return { token, user };
     },
     // Set up mutation user can save books
-    saveBook: async (parent, { input }, context) => {
+    saveBook: async (parent, { userId, bookData }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { savedBooks: input } },
+          { _id: userId },
+          { $addToSet: { savedBooks: bookData } },
           { new: true, runValidators: true }
         );
         return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    removeBook: async (parent, { bookId }, context) => {
+    removeBook: async (parent, args, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
