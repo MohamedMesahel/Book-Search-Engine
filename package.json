@@ -4,8 +4,8 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
-    "start": "node server.js",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "start": "node server/server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
