@@ -2,6 +2,7 @@
 // TODO: Test the app response if not check activity 26, day 3, pages, signup 
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 // import { useMutation } from '@apollo/react-hooks';
 
@@ -13,13 +14,13 @@ const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [loginUser, { error }] = useMutation(LOGIN_USER);
- 
+  const [loginUser, { error, data }] = useMutation(LOGIN_USER);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
-
+  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     // check if form has everything (as per react-bootstrap docs)
