@@ -5,10 +5,11 @@ import { Form, Button, Alert } from 'react-bootstrap';
 // import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 // import { useMutation } from '@apollo/react-hooks';
-
 // TODO: import hooks and functions 
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+// const ref = React.createRef();
+
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
@@ -21,7 +22,7 @@ const LoginForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-  const handleFormSubmit = async (event) => {
+  async function handleFormSubmit(event) {
     event.preventDefault();
 
     // check if form has everything (as per react-bootstrap docs)
@@ -44,7 +45,7 @@ const LoginForm = () => {
       email: "",
       password: "",
     });
-  };
+  }
 
   return (
     <>
@@ -75,11 +76,8 @@ const LoginForm = () => {
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
-        <Button
-          disabled={!(userFormData.email && userFormData.password)}
-          type="submit"
-          variant="success"
-        >
+        <Button disabled={!(userFormData.email && userFormData.password)} type='submit' variant='success'>
+
           Submit
         </Button>
       </Form>
