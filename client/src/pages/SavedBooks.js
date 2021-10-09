@@ -8,9 +8,9 @@ import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
-  const { loading, data } = useQuery(QUERY_ME);
+  const { data } = useQuery(QUERY_ME);
 
-  const [userData, setUserData] = useState(loading ? null : data.me);
+  const [userData, setUserData] = useState(data?.me || []);
   const [removeBook] = useMutation(REMOVE_BOOK);
 
   // use this to determine if `useEffect()` hook needs to run again
