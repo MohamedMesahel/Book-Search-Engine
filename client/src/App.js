@@ -12,23 +12,7 @@ import { setContext } from '@apollo/client/link/context';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
-// New Way 
-// const token = localStorage.getItem('id_token');
-// const client = new ApolloClient({
-//   ssrMode: true,
-//   link: createHttpLink({
-//   uri: '/graphql',
-//     credentials: 'same-origin',
-//     headers: {
-//       authorization: localStorage.getItem(token) || '',
-//     },
-//   }),
-//   cache: new InMemoryCache(),
-// });
-// Using old methoad to lunch the application 
-// Also make sure to check the migration between apollo 2 and 3 as it's supposed to be 
-// Construct our main GraphQL API endpoint
-// Old Methoad
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -65,8 +49,25 @@ function App() {
         </>
       </Router>
     </ApolloProvider>
-    
+
   );
 }
 
 export default App;
+// New Way for Apollo V3
+// const token = localStorage.getItem('id_token');
+// const client = new ApolloClient({
+//   ssrMode: true,
+//   link: createHttpLink({
+//   uri: '/graphql',
+//     credentials: 'same-origin',
+//     headers: {
+//       authorization: localStorage.getItem(token) || '',
+//     },
+//   }),
+//   cache: new InMemoryCache(),
+// });
+// Using old methoad to lunch the application 
+// Also make sure to check the migration between apollo 2 and 3 as it's supposed to be 
+// Construct our main GraphQL API endpoint
+// Old Methoad

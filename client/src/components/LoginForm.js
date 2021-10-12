@@ -8,10 +8,7 @@ import Auth from "../utils/auth";
 // Importing Fancybutton and establishing reference
 import FancyButton from './FancyButton';
 const ref = React.createRef();
-
-
-
-
+// Building the Login user interface
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN_USER);
