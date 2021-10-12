@@ -1,11 +1,16 @@
 // see SignupForm.js for comments
 import React, { useState } from "react";
 import { useMutation } from '@apollo/client';
-import { Form, Button, Alert } from "react-bootstrap";
-
+import { Form, Alert } from "react-bootstrap";
 // import { loginUser } from '../utils/API';
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+// Importing Fancybutton and establishing reference
+import FancyButton from './FancyButton';
+const ref = React.createRef();
+
+
+
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
@@ -84,13 +89,14 @@ const LoginForm = () => {
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
-        <Button
+        <FancyButton
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
           variant="success"
+          ref={ref}
         >
           Submit
-        </Button>
+        </FancyButton>
       </Form>
     </>
   );

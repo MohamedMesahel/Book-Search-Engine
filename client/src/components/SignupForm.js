@@ -1,11 +1,14 @@
 // TODO: Test the app response if not check activity 26, day 3, pages, signup
 import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 import { useMutation } from '@apollo/client';
 // import { useMutation } from '@apollo/react-hooks';
 // import { createUser } from '../utils/API';
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
+// Importing Fancybutton and establishing reference
+import FancyButton from './FancyButton';
+const ref = React.createRef();
 
 const SignupForm = () => {
   // set initial form state
@@ -111,7 +114,7 @@ const SignupForm = () => {
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
-        <Button
+        <FancyButton
           disabled={
             !(
               userFormData.username &&
@@ -121,9 +124,10 @@ const SignupForm = () => {
           }
           type="submit"
           variant="success"
+          ref={ref}
         >
           Submit
-        </Button>
+        </FancyButton>
       </Form>
     </>
   );
