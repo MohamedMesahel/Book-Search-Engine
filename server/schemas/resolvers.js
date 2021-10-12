@@ -49,12 +49,12 @@ const resolvers = {
       return { token, user };
     },
     // Set up mutation user can save books
-    saveBook: async (parent, { userId, input }, context) => {
+    saveBook: async (parent, { input }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
-          { _id: userId },
+          { _id: context.user._id },
           { $addToSet: { savedBooks: input } },
-          { new: true, runValidators: true }
+          { new: true, runValidators: false }
         );
         return updatedUser;
       }

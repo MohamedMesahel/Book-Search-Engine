@@ -49,6 +49,7 @@ const SearchBooks = () => {
         authors: book.volumeInfo.authors || ["No author to display"],
         title: book.volumeInfo.title,
         description: book.volumeInfo.description,
+        link: book.volumeInfo.link,
         image: book.volumeInfo.imageLinks?.thumbnail || "",
       }));
 
@@ -72,12 +73,14 @@ const SearchBooks = () => {
     }
 
     try {
-      const { data } = await saveBook({
-        variables: { book: { ...bookToSave } }
+      const response = await saveBook({
+        variables: {
+          input: bookToSave,
+        },
       });
 
-      if (!data) {
-        throw new Error('something went wrong!');
+      if (!response) {
+        throw new Error("something went wrong!");
       }
 
       // if book successfully saves to user's account, save book id to state
