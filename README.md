@@ -14,7 +14,6 @@ Fully functioning Google Books API search engine built with GraphQL API and Apol
 * [Screen-Shots](#Screen-Shots)
 
 ## Installation
-<!-- TODO: add the live Heroku link -->
 - You can visit the deployed app here : [Book Search Engine](https://book-search-enginem.herokuapp.com/).
 - If you want to run the app on your local server download it through Github.
 - Run npm i or (npm install), to make sure to download all the necessary files in the jason package.
@@ -27,7 +26,6 @@ AS AN avid reader
 I WANT to search for new books to read
 SO THAT I can keep a list of books to purchase
 ```
-<!-- TODO: add correct screenshot -->
 ### Screen Shots
 ![](client/public/assets/main.png)
 ![](client/public/assets/saved.png)
