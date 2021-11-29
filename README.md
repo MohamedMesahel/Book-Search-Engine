@@ -90,9 +90,9 @@ The fact that most modern websites are driven by two things: data and user deman
 </p>
 
 * Demo-1: Animation shows "star wars" typed into a search box and books about Star Wars appearing as results.
-The user can save books by clicking "Save This Book!" under each search result, as shown in the following animation:
+The user can save books by clicking "Save This Book!" under each search resuls.
 * Demo-2: Animation shows user clicking "Save This Book!" button to save books that appear in search results. The button label changes to "Book Already Saved" after it is clicked and the book is saved.
-A user can view their saved books on a separate page, as shown in the following animation:
+A user can view their saved books on a separate page.
 * Demo-3: Animation shows the Viewing Lernantino's Books page shows the books that the user Lernaninto has saved.
 
 ### Built With
